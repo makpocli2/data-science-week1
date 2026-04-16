@@ -40,3 +40,44 @@ mosquito_egg_raw |>
 #   the script being able to create a table that quickly 
 # - Any obvious problems?
 # none that i can see 
+
+# FIX 1: [Issue description] ====
+
+# Show the problem:missing data
+
+summary(mosquito_egg_data)
+#shows the number of NAs
+
+# Fix it:
+mosquito_egg_data_step1 <- mosquito_egg_raw |>
+  # YOUR CODE HERE
+  mosquito_egg_data|> 
+  drop_na()
+
+   # Verify it worked:
+  # [Code to check change happened]
+summary(mosquito_egg_data)
+  
+  # What changed and why it matters:
+  # [2-3 sentences explaining consequences]
+  # not much changed.. the code to remove the rows with NAs did not seem to work
+  
+  
+  # FIX 2: [Issue description] strings in the treatment column 
+
+# Show the problem:
+# [Code]
+# 3 names in treatment column
+mosquito_egg_data |> str_detect(treatment) 
+
+# Fix it:
+mosquito_egg_data_step2 <- mosquito_egg_data_step1 |>
+  # YOUR CODE
+  
+  
+  # Verify it worked:
+  # [Code]
+  
+  # What changed and why it matters:
+  # [2-3 sentences]
+  #
