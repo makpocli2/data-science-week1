@@ -1,0 +1,312 @@
+================================================================================
+TUTORIAL 1: CHECKING STRINGS - APPLICATION CHECKLIST
+================================================================================
+
+[x] I completed the tutorial exercises
+
+
+CONNECTING TO MY DATA:penguins_clean_names <- readRDS(url("https://github.com/UEABIO/5023B/raw/refs/heads/2026/files/penguins.RDS"))
+
+----------------------
+
+1. Did I identify any string-related questions in my Week 1 questions list?
+
+   [ ] YES - Question #(s): ___________
+   [x] NO - Skip to question 4
+
+
+2. If YES, which technique from this tutorial could help address my question?
+
+   [ ] str_to_lower() - standardize capitalization
+   [ ] str_to_upper() - standardize capitalization  
+   [ ] str_trim() - remove leading/trailing whitespace
+   [ ] str_replace() - fix typos or inconsistent spellings
+   [ ] Other: ___________
+   [ ] None of these apply
+
+
+3. Show what this technique would DO to my data:
+
+   Variable name: ___________
+   
+   Example values BEFORE:
+   - 
+   - 
+   - 
+   
+   What they would become AFTER:
+   - 
+   - 
+   - 
+
+
+4. If this tutorial is NOT relevant to my data:
+
+   Why not? (Check all that apply)
+   [ ] I don't have any character/text variables
+   [x] My text variables are already clean
+   [ ] My string issues are different from what this tutorial covers
+   [ ] Other: ___________
+
+
+================================================================================
+
+================================================================================
+TUTORIAL 2: CHECKING DATES - APPLICATION CHECKLIST
+================================================================================
+
+[x] I completed the tutorial exercises
+
+
+
+CONNECTING TO MY DATA:
+----------------------
+
+1. Did I identify any date-related questions in my Week 1 questions list?
+
+   [ ] YES - Question #(s): ___________
+   [x] NO - Skip to question 5
+
+
+2. If YES, which technique from this tutorial could help address my question?
+
+   [ ] dmy() / ymd() / mdy() - parse dates in different formats
+   [ ] excel_numeric_to_date() - convert Excel serial numbers
+   [ ] Checking for impossible dates (wrong day/month/year)
+   [ ] Other: ___________
+   [ ] None of these apply
+
+
+3. Show what this technique would DO to my data:
+
+   Variable name: ___________
+   
+   Example values BEFORE:
+   - 
+   - 
+   - 
+   
+   What they would become AFTER:
+   - 
+   - 
+   - 
+
+
+4. Think about consequences:
+
+   What assumption am I making about date format?
+   (e.g., "01/12/2023 is DD/MM/YYYY not MM/DD/YYYY")
+   
+   
+   What could go wrong if this assumption is incorrect?
+   
+   
+   How could I verify my assumption is correct?
+   
+
+
+5. If this tutorial is NOT relevant to my data:
+
+   Why not?
+   [x] I don't have any date variables
+   [ ] My dates are already in proper format
+   [ ] My date issues are different from what this tutorial covers
+   [ ] Other: ___________
+
+
+================================================================================
+
+================================================================================
+TUTORIAL 3: CHECKING MISSING DATA PATTERNS - APPLICATION CHECKLIST
+================================================================================
+
+[x] I completed the tutorial exercises
+
+
+CONNECTING TO MY DATA:
+----------------------
+
+1. Did I identify any missing data questions in my Week 1 questions list?
+
+   [x] YES - Question #(s): ___________
+   [ ] NO - But I'll check anyway (missing data is common)
+
+
+2. Which variables have the most missing data?
+
+   Variable: ___eggs hatched________ | Percent missing: _8.3____%
+   Variable: __eggs laid_________ | Percent missing: __7.8___%
+   Variable: __age days_________ | Percent missing: ___7.3__%
+
+
+3. Missingness types checklist
+
+
+   [ ] MCAR (Missing Completely At Random) - appears random/scattered
+   [x] MAR (Missing At Random) - related to other observed variables
+   [x] MNAR (Missing Not At Random) - related to the missing value itself
+
+Why is it important to know what type of missing data we have? 
+so when analysing it we can exclude it r investigate it
+================================================================================
+
+================================================================================
+TUTORIAL 4: CHECKING DUPLICATES - APPLICATION CHECKLIST
+================================================================================
+
+[x] I completed the tutorial exercises
+
+
+CONNECTING TO MY DATA:
+----------------------
+
+1. Did I identify any duplicate-related questions in my Week 1 questions list?
+
+   [x] YES - Question #(s): ___________
+   [ ] NO - But I'll check anyway
+
+
+3. Think about consequences:
+
+   If I remove duplicates, what am I assuming?
+   
+   
+   If duplicates are actually repeated measures, what should I do instead?
+   [x] Keep them - they're legitimate observations
+   [ ] Flag them for later analysis that accounts for non-independence
+   [ ] Other: ___________
+   
+   
+================================================================================
+
+================================================================================
+TUTORIAL 5: NUMERIC & CROSS-VARIABLE CONSISTENCY - APPLICATION CHECKLIST
+================================================================================
+
+[x] I completed the tutorial exercises
+
+
+PART A: NUMERIC PLAUSIBILITY
+-----------------------------
+
+1. Did I identify any numeric plausibility questions in my Week 1 questions list?
+
+   [ ] YES - Question #(s): ___________
+   [x] NO - Skip to Part B
+
+
+2. If YES, which numeric variable looks suspicious?
+
+   Variable name: ___________
+   
+   Minimum value: _____  | Is this biologically possible? [ ] Yes [ ] No [ ] Unsure
+   Maximum value: _____  | Is this biologically possible? [ ] Yes [ ] No [ ] Unsure
+   
+
+   Why do these look wrong?
+   [ ] Negative value (impossible for this measurement)
+   [ ] Zero (should be NA instead)
+   [ ] Too large (exceeds known biological maximum)
+   [ ] Too small (below known biological minimum)
+   [ ] Possible units confusion (mixed kg and g?)
+   [ ] Other: ___________
+
+
+
+PART B: CROSS-VARIABLE CONSISTENCY
+-----------------------------------
+
+4. Did I identify any cross-variable questions in my Week 1 questions list?
+
+   [x] YES - Question #(s): ___________
+   [ ] NO - But I'll check anyway
+
+
+5. Choose TWO variables that should be related (e.g., body length and body mass,
+   sex and reproductive status, species and location):
+
+   Variable 1: ___eggs laid________
+   Variable 2: ___eggshatched________
+   
+   What relationship do I expect between them?
+   [x] Positive correlation (both increase together)
+   [ ] Negative correlation (one increases, other decreases)
+   [ ] Biological constraint (certain combinations impossible)
+   [ ] Spatial constraint (certain combinations shouldn't occur)
+   [ ] Other: ___________
+   
+   Describe the expected relationship:
+   as the eggs laid increases as should the number of eggs hacthed however eggs
+   hacthed can not be more than the eggs laid 
+
+
+6. Think about consequences:
+
+   If these variables are inconsistent, what should I do?
+   [ ] Remove the observations
+   [ ] Convert one variable to NA (which one? _________)
+   [x] Flag for review but keep both
+   [ ] Query the data collector
+   [ ] Other: ___________
+   
+   Justification:
+   
+because they go together 
+
+================================================================================
+
+WEEK 2 CLEANING PLAN
+====================
+Name: [Meg Akpocli]
+Date: [08/04/26]
+
+I've completed all 5 tutorials and application checklists.
+
+Looking across all my checklists, these are the 2 most important issues 
+to address in Week 2:
+
+
+ISSUE 1 (Most Important)
+-------------------------
+Brief description: [missing data]
+
+Which tutorial provides the solution: [5]
+
+Which variable(s) affected: [body mass]
+
+Why this is important to fix: [impossible to not have abody mass]
+
+What I plan to do: [investigating why?]
+
+
+
+ISSUE 2 (Second Most Important)
+--------------------------------
+Brief description: [What's the problem? 1 sentence]
+
+Which tutorial provides the solution: [Tutorial name/number]
+
+Which variable(s) affected: [Variable name(s)]
+
+Why this is important to fix: [Biological/analytical reason]
+
+What I plan to do: [The technique I'll use, in plain English]
+
+
+
+OTHER ISSUES I NOTICED (but won't fix in Week 2)
+-------------------------------------------------
+- [Issue 3 - will address later if time]
+- [Issue 4 - uncertain how to handle]
+- [Issue 5 - decided to leave as-is because...]
+
+
+QUESTIONS TO DISCUSS IN WEEK 2
+-------------------------------
+Things I'm still unsure about:
+
+1. writing the actual codes for these cleaning methods 
+
+2. 
+
+3.
